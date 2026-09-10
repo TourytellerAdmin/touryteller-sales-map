@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Touryteller Sales Map</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<style>
+html,body,#map{height:100%;margin:0;background:#f5f5f7;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif}
+.leaflet-container{background:#f5f5f7}
+.map-card{min-width:160px}.city{font-weight:700;font-size:15px}.count{margin-top:4px;font-size:13px;color:#666}.note{margin-top:6px;font-size:11px;color:#888}
+.legend{background:rgba(255,255,255,.94);backdrop-filter:blur(12px);padding:10px 12px;border-radius:14px;box-shadow:0 4px 24px rgba(0,0,0,.12);font-size:12px;line-height:1.35;color:#333}.legend b{font-size:13px;color:#111}
+.leaflet-control-zoom{border:0!important;box-shadow:0 4px 20px rgba(0,0,0,.12)!important}.leaflet-control-zoom a{border:0!important}
+</style>
+</head>
+<body>
+<div id="map"></div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const markets=[
+['Budapest',7,47.4979,19.0402],['Madrid',6,40.4168,-3.7038],['París',6,48.8566,2.3522],['Dublín',6,53.3498,-6.2603],['Roma',6,41.9028,12.4964],['Londres',5,51.5072,-0.1276],['Tokio',5,35.6895,139.6917],['Barcelona',4,41.3851,2.1734],['Dubrovnik',4,42.6507,18.0944],['Berlín',4,52.52,13.405],['Praga',4,50.0755,14.4378],['Cracovia',3,50.0647,19.945],['Estambul',3,41.0082,28.9784],['Toledo',3,39.8628,-4.0273],['Ámsterdam',2,52.3676,4.9041],['Oporto',2,41.1579,-8.6291],['Florencia',1,43.7696,11.2558],['Badalona',1,41.45,2.245],['Granada',1,37.1773,-3.5986],['València',1,39.4699,-0.3763],['Medellín',1,6.2442,-75.5812],['Kraków',1,50.0647,19.945],['Salou',1,41.0778,1.131],['Lloret de Mar',1,41.6999,2.8456],['Sevilla',1,37.3891,-5.9845],['Tenerife',1,28.4636,-16.2518],['Costa Brava / Girona',1,41.9794,2.8214],['Lisboa',1,38.7223,-9.1393],['Viena',1,48.2082,16.3738],['Sitges',1,41.2372,1.8119]
+];
+const map=L.map('map',{zoomControl:true,worldCopyJump:true,minZoom:2});
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{attribution:'&copy; OpenStreetMap &copy; CARTO',maxZoom:20}).addTo(map);
+const bounds=[];
+markets.forEach(([city,count,lat,lng])=>{
+ const radius=6+Math.sqrt(count)*3;
+ const marker=L.circleMarker([lat,lng],{radius,weight:2,opacity:.95,fillOpacity:.72});
+ marker.bindPopup(`<div class="map-card"><div class="city">${city}</div><div class="count"><b>${count}</b> oportunidades geolocalizadas</div><div class="note">Touryteller Sales OS</div></div>`);
+ marker.bindTooltip(`${city} · ${count}`,{direction:'top',offset:[0,-4]});
+ marker.addTo(map); bounds.push([lat,lng]);
+});
+map.fitBounds(bounds,{padding:[28,28],maxZoom:4});
+const legend=L.control({position:'bottomleft'});
+legend.onAdd=()=>{const d=L.DomUtil.create('div','legend');d.innerHTML='<b>Touryteller · mapa comercial</b><br>Arrastra, haz zoom y pulsa cada punto.<br><span>86 oportunidades con ciudad normalizada · 30 mercados visibles</span>';return d};
+legend.addTo(map);
+</script>
+</body>
+</html>
