@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f6f7f9">
+<title>Touryteller · Intelligence Command Center v11</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="https://raw.githack.com/TourytellerAdmin/touryteller-sales-map/449064d1dfd5e4d4cc1645a94c219e38aa1b7d6f/mobile-v10.css">
+<link rel="stylesheet" href="https://raw.githack.com/TourytellerAdmin/touryteller-sales-map/3c00ea66093a36a33f832900df7ee3ed6be6f0fa/mobile-v11.css">
+</head>
+<body>
+<div class="app">
+  <div class="top">
+    <div class="brand"><div class="logo">T</div><div><b>Touryteller</b><small>Intelligence Command Center · v11</small></div></div>
+    <div class="actions"><button class="action" id="worldBtn">⌖ <span>Mundo</span></button><button class="action primary" id="fullBtn">⛶ <span>Pantalla completa</span></button></div>
+  </div>
+  <div class="head"><div><h1>Global Expansion Intelligence</h1><p>CRM real · inteligencia de mercado · decisiones · expansión global</p></div><div class="sync" id="sync">● Cargando CRM…</div></div>
+  <div class="stats" id="stats"></div>
+  <section class="focus" id="focus">
+    <div class="label">Decisión comercial</div><div class="pills" id="views"></div>
+    <div class="secondary" id="profileBox"><div class="label">Quién quieres ver</div><div class="pills" id="profiles"></div></div>
+    <div class="secondary" id="funnelBox"><div class="label">Funnel</div><div class="pills" id="funnels"></div></div>
+    <div class="secondary" id="quarterBox" style="display:none"><div class="label">Trimestre estratégico</div><div class="pills" id="quarters"></div></div>
+    <div class="searchRow"><input id="search" class="search" placeholder="Buscar ciudad, país, creador, guía, agencia, empresa o contacto…"><button class="smallbtn" id="clearBtn">×</button></div>
+    <div class="mapShell"><div class="overlay"><div class="badge" id="mode">Inteligencia</div><div class="badge" id="count">—</div></div><div id="map"></div></div>
+    <div class="legend" id="legend"></div>
+    <div class="visualPanel"><div class="heroCard" id="hero"></div><div class="infoCard" id="detail"></div></div>
+    <div class="section"><div class="sectionTitle"><h3>Perfiles y oportunidades</h3><small id="oppHint">Top del mercado seleccionado</small></div><div class="visualStrip" id="opportunities"></div></div>
+    <div class="section" id="roadSection"><div class="sectionTitle"><h3>Próximos en el roadmap</h3><small>12 meses · por score estratégico</small></div><div class="visualStrip" id="roadCards"></div></div>
+    <div class="unmapped" id="unmapped"></div>
+  </section>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://raw.githack.com/TourytellerAdmin/touryteller-sales-map/449064d1dfd5e4d4cc1645a94c219e38aa1b7d6f/mobile-v10-a.js"></script>
+<script src="https://raw.githack.com/TourytellerAdmin/touryteller-sales-map/449064d1dfd5e4d4cc1645a94c219e38aa1b7d6f/mobile-v10-b.js"></script>
+<script src="https://raw.githack.com/TourytellerAdmin/touryteller-sales-map/3c00ea66093a36a33f832900df7ee3ed6be6f0fa/mobile-v11.js"></script>
+</body>
+</html>
