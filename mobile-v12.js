@@ -1,0 +1,65 @@
+(()=>{
+const VERSION='13 Sep 2026 · v12 Markets';
+const LIVE_TOTAL=276,LIVE_MAPPED=151;
+const LIVE={
+'Barcelona':{identified:30,contacted:10},'Roma':{identified:12,contacted:7},'Budapest':{identified:9,contacted:4},'Madrid':{identified:8,contacted:4},'Londres':{identified:8,contacted:5},'París':{identified:7,contacted:4},'Ámsterdam':{identified:6,contacted:1},'Dublín':{identified:6,contacted:4},'Lisboa':{identified:6,contacted:5},'Berlín':{identified:6,contacted:3},'Praga':{identified:6,contacted:3},'Oporto':{identified:5,contacted:2},'Tokio':{identified:5,contacted:4},'Cracovia':{identified:5,contacted:3},'Toledo':{identified:5,contacted:4},'Estambul':{identified:4,contacted:3},'Dubrovnik':{identified:4,contacted:3},'Sevilla':{identified:2,contacted:0},'Florencia':{identified:2,contacted:0},'València':{identified:1,contacted:0},'Medellín':{identified:1,contacted:1},'Granada':{identified:1,contacted:1},'Viena':{identified:1,contacted:0}
+};
+const INTEL={
+'Barcelona':{potential:96,tier:'A+',wave:'W1',launch:'ACTIVE',countryN79:15076,registry:'Generalitat de Catalunya',quality:'Registro oficial · sin total agregado'},
+'Madrid':{potential:93,tier:'A+',wave:'W1',launch:'TEST',guides:751,guideScope:'Comunidad de Madrid',countryN79:15076,registry:'Comunidad de Madrid',quality:'Dato regional oficial'},
+'Sevilla':{potential:91,tier:'A+',wave:'W1',launch:'TEST',regionGuides:6500,guideScope:'Andalucía · >6.500',countryN79:15076,registry:'Junta de Andalucía',quality:'Dato regional oficial'},
+'Granada':{potential:92,tier:'A+',wave:'W1',launch:'TEST',regionGuides:6500,guideScope:'Andalucía · >6.500',countryN79:15076,registry:'Junta de Andalucía',quality:'Dato regional oficial'},
+'Málaga':{potential:90,tier:'A+',wave:'W1',launch:'RESEARCH',regionGuides:6500,guideScope:'Andalucía · >6.500',countryN79:15076,registry:'Junta de Andalucía',quality:'Dato regional oficial'},
+'València':{potential:90,tier:'A+',wave:'W1',launch:'TEST',regionGuides:1633,guideScope:'Comunitat Valenciana',countryN79:15076,registry:'Generalitat Valenciana',quality:'Dato regional oficial'},
+'Palma':{potential:86,tier:'A',wave:'W1',launch:'RESEARCH',countryN79:15076,quality:'Potencial estratégico'},
+'Santiago de Compostela':{potential:88,tier:'A',wave:'W1',launch:'RESEARCH',regionGuides:1196,guideScope:'Galicia',countryN79:15076,registry:'Turismo de Galicia',quality:'Dato regional oficial'},
+'Bilbao':{potential:84,tier:'A',wave:'W1',launch:'RESEARCH',countryN79:15076,quality:'Potencial estratégico'},
+'San Sebastián':{potential:84,tier:'A',wave:'W1',launch:'RESEARCH',countryN79:15076,quality:'Potencial estratégico'},
+'Roma':{potential:97,tier:'A+',wave:'W1',launch:'VALIDATED',countryN79:19906,registry:'ENGT · Ministero del Turismo',quality:'Registro nacional explotable'},
+'Florencia':{potential:94,tier:'A+',wave:'W1',launch:'TEST',countryN79:19906,registry:'ENGT · Ministero del Turismo',quality:'Registro nacional explotable'},
+'Venecia':{potential:95,tier:'A+',wave:'W1',launch:'RESEARCH',countryN79:19906,registry:'ENGT · Ministero del Turismo',quality:'Registro nacional explotable'},
+'París':{potential:95,tier:'A+',wave:'W2',launch:'VALIDATED',countryN79:11699,quality:'N79 país · profesión regulada'},
+'Lisboa':{potential:94,tier:'A+',wave:'W2',launch:'TEST',countryN79:5130,quality:'N79 país'},
+'Oporto':{potential:90,tier:'A+',wave:'W2',launch:'VALIDATED',countryN79:5130,quality:'N79 país'},
+'Viena':{potential:92,tier:'A+',wave:'W2',launch:'TEST',guides:855,guideScope:'Viena',registry:'WKO · 31/12/2025',quality:'Dato ciudad oficial'},
+'Praga':{potential:90,tier:'A+',wave:'W2',launch:'TEST',countryN79:6297,quality:'N79 país'},
+'Atenas':{potential:91,tier:'A+',wave:'W2',launch:'RESEARCH',countryN79:4294,registry:'Ministerio de Turismo de Grecia',quality:'Registro oficial disponible'},
+'Berlín':{potential:88,tier:'A',wave:'W2',launch:'TEST',countryN79:11017,quality:'N79 país'},
+'Budapest':{potential:86,tier:'A',wave:'W2',launch:'VALIDATED',quality:'Señal CRM + potencial'},
+'Londres':{potential:91,tier:'A+',wave:'W2',launch:'TEST',quality:'Potencial estratégico'},
+'Dublín':{potential:84,tier:'A',wave:'W2',launch:'VALIDATED',quality:'Señal CRM + potencial'},
+'Ámsterdam':{potential:85,tier:'A',wave:'W2',launch:'TEST',countryN79:6690,quality:'N79 país'},
+'Cracovia':{potential:85,tier:'A',wave:'W2',launch:'TEST',countryN79:7425,quality:'N79 país'},
+'Estambul':{potential:89,tier:'A',wave:'W2',launch:'TEST',quality:'Potencial estratégico'},
+'Tokio':{potential:94,tier:'A+',wave:'W3',launch:'LAUNCHING',quality:'Señal propia Touryteller'},
+'Medellín':{potential:83,tier:'A',wave:'W3',launch:'LAUNCHING',quality:'Señal propia Touryteller'},
+'Nueva York':{potential:97,tier:'A+',wave:'W3',launch:'RESEARCH',quality:'Potencial estratégico'},
+'Kioto':{potential:94,tier:'A+',wave:'W3',launch:'RESEARCH',quality:'Potencial estratégico'},
+'Osaka':{potential:91,tier:'A+',wave:'W3',launch:'RESEARCH',quality:'Potencial estratégico'},
+'Ciudad de México':{potential:95,tier:'A+',wave:'W3',launch:'RESEARCH',quality:'Potencial estratégico'},
+'Buenos Aires':{potential:91,tier:'A+',wave:'W3',launch:'RESEARCH',quality:'Potencial estratégico'},
+'Bogotá':{potential:90,tier:'A+',wave:'W3',launch:'RESEARCH',quality:'Potencial estratégico'},
+'Lima':{potential:88,tier:'A',wave:'W3',launch:'RESEARCH',quality:'Potencial estratégico'},
+'Dubái':{potential:89,tier:'A',wave:'W3',launch:'RESEARCH',quality:'Potencial estratégico'},
+'Bangkok':{potential:93,tier:'A+',wave:'W3',launch:'RESEARCH',quality:'Potencial estratégico'}
+};
+const EXTRA=[
+{name:'Málaga',country:'España',lat:36.7213,lng:-4.4214},{name:'València',country:'España',lat:39.4699,lng:-0.3763},{name:'Palma',country:'España',lat:39.5696,lng:2.6502},{name:'Santiago de Compostela',country:'España',lat:42.8782,lng:-8.5448},{name:'Bilbao',country:'España',lat:43.263,lng:-2.935},{name:'San Sebastián',country:'España',lat:43.3183,lng:-1.9812},{name:'Venecia',country:'Italia',lat:45.4408,lng:12.3155},{name:'Atenas',country:'Grecia',lat:37.9838,lng:23.7275}
+];
+function wait(){if(typeof D==='undefined'||!D||typeof map==='undefined'||typeof refresh!=='function'||typeof renderFilters!=='function'||typeof renderHeroCity!=='function'){setTimeout(wait,120);return}install()}
+function tierColor(t){return t==='A+'?'#c2413a':t==='A'?'#d97706':t==='B'?'#2563eb':'#64748b'}
+function ensureLocations(){EXTRA.forEach(x=>{if(!D.locations.some(r=>normCity(r.name)===normCity(x.name)))D.locations.push({...x,total:0,sent:0,queue:0,interested:0,responses:0,won:0,next:0,p0:0,p1:0,p2:0,p3:0,recent7:0,recent30:0,supply:0,partners:0,institutions:0,capital:0,contests:0})});Object.entries(INTEL).forEach(([name,i])=>{let r=D.locations.find(x=>normCity(x.name)===normCity(name));if(!r){const rd=D.roadmap.find(x=>normCity(x.name)===normCity(name));if(rd){r={...rd,total:0,sent:0,queue:0,interested:0,responses:0,won:0,next:0,p0:0,p1:0,p2:0,p3:0,recent7:0,recent30:0,supply:0,partners:0,institutions:0,capital:0,contests:0};D.locations.push(r)}}if(r){const live=LIVE[name];if(live)r.total=live.identified;const crm=Number(r.marketScore||0);r.crmSignalScore=crm;r.strategicPotential=i.potential;const enough=(live?.identified||0)>=5&&(live?.contacted||0)>=2;r.marketScore=enough&&crm?Math.round(i.potential*.7+crm*.3):i.potential;r.marketTier=i.tier;r.marketWave=i.wave;r.launchStatus=i.launch;r.marketIntel=i}});D.roadmap.forEach(r=>{const i=INTEL[normCity(r.name)];if(i)r.score=i.potential});EXTRA.forEach(x=>{if(!D.roadmap.some(r=>normCity(r.name)===normCity(x.name)))D.roadmap.push({...x,quarter:'Q4',score:INTEL[x.name]?.potential||80})})}
+function install(){ensureLocations();SUMMARY.total=LIVE_TOTAL;SUMMARY.mapped=LIVE_MAPPED;SUMMARY.unmapped=LIVE_TOTAL-LIVE_MAPPED;TARGETS.total=Math.max(TARGETS.total||0,350);TARGETS.mapped=LIVE_TOTAL;
+const oldMetric=metric,oldLabel=label,oldColor=color,oldRenderFilters=renderFilters,oldLegend=renderLegend,oldMarkers=redrawMarkers,oldHero=renderHeroCity,oldRoad=renderRoad;
+metric=function(r){if(view==='MARKETS')return r.marketScore||r.strategicPotential||0;return oldMetric(r)};
+label=function(){return view==='MARKETS'?'Mercados prioritarios':oldLabel()};
+color=function(){return view==='MARKETS'?'#6d5dfc':oldColor()};
+renderFilters=function(){oldRenderFilters();const el=document.getElementById('views');if(el&&!el.querySelector('[data-v12-markets]')){const b=document.createElement('button');b.className='pill '+(view==='MARKETS'?'active':'');b.dataset.v12Markets='1';b.innerHTML='Mercados <span class="count">'+Object.keys(INTEL).length+'</span><span class="target">score híbrido</span>';b.onclick=()=>{view='MARKETS';profile='ALL';funnel='ALL';quarter='ALL';selected=null;refresh(true)};el.prepend(b)}if(view==='MARKETS'){document.getElementById('profileBox').style.display='none';document.getElementById('funnelBox').style.display='none';document.getElementById('quarterBox').style.display='none'}};
+redrawMarkers=function(){if(view!=='MARKETS')return oldMarkers();markers.forEach(m=>map.removeLayer(m));markers=[];D.locations.filter(r=>INTEL[normCity(r.name)]).forEach(r=>{const i=INTEL[normCity(r.name)],live=LIVE[normCity(r.name)]||{identified:0,contacted:0};const m=L.circleMarker([r.lat,r.lng],{radius:Math.min(17,7+(r.marketScore-75)/7),color:'#fff',weight:2.3,fillColor:tierColor(i.tier),fillOpacity:.96}).addTo(map);m.bindTooltip(`<b>${r.name}</b><br>Market Score ${r.marketScore}/100 · Tier ${i.tier}<br>${i.launch} · ${i.wave}<br>CRM ${live.identified} · contactados ${live.contacted}`,{direction:'top'});m.on('click',()=>selectCity(r.name,r));markers.push(m)})};
+renderLegend=function(){if(view!=='MARKETS')return oldLegend();document.getElementById('legend').innerHTML=[['#c2413a','Tier A+ · atacar ahora'],['#d97706','Tier A · prioridad alta'],['#2563eb','Tier B · validar'],['#64748b','Tier C · explorar']].map(x=>`<span><i style="background:${x[0]}"></i>${x[1]}</span>`).join('')};
+renderHeroCity=function(name){oldHero(name);const n=normCity(name),i=INTEL[n];if(!i)return;const r=D.locations.find(x=>normCity(x.name)===n)||{},live=LIVE[n]||{identified:0,contacted:0};const explain=document.querySelector('#hero .intelExplain p');if(explain)explain.textContent='Market Score híbrido: potencial estructural del mercado + señal real de Touryteller cuando ya existe suficiente evidencia.';const body=document.querySelector('#hero .heroBody');if(body){const d=document.createElement('div');d.className='marketV12';d.innerHTML=`<div class="marketV12Head"><b>Market Intelligence v12</b><span class="tierV12" style="background:${tierColor(i.tier)}">Tier ${i.tier}</span><span>${i.wave}</span><span>${i.launch}</span></div><div class="marketV12Grid"><div><strong>${i.potential}</strong><small>potencial estructural</small></div><div><strong>${r.crmSignalScore||'—'}</strong><small>señal CRM previa</small></div><div><strong>${live.identified}</strong><small>leads identificados</small></div><div><strong>${live.contacted}</strong><small>contactados históricos</small></div>${i.guides?`<div><strong>${i.guides}</strong><small>guías oficiales · ${i.guideScope}</small></div>`:''}${i.regionGuides?`<div><strong>${i.regionGuides===6500?'6.500+':i.regionGuides}</strong><small>guías · ${i.guideScope}</small></div>`:''}${i.countryN79?`<div><strong>${i.countryN79.toLocaleString('es-ES')}</strong><small>empresas N79 · país · proxy</small></div>`:''}</div><p class="marketV12Note">${i.registry?`Fuente/registro: ${i.registry}. `:''}${i.quality||''}. Las cifras N79 son contexto país y no se presentan como empresas puras de guías.</p>`;body.appendChild(d)}};
+renderRoad=function(){oldRoad();document.querySelectorAll('#roadCards .roadCard').forEach(card=>{const h=card.querySelector('h4')?.textContent,i=INTEL[normCity(h||'')];if(i){const meta=card.querySelector('.meta');if(meta)meta.insertAdjacentHTML('afterbegin',`<span class="tag">Tier ${i.tier}</span><span class="tag green">${i.launch}</span>`)}})};
+const style=document.createElement('style');style.textContent=`.marketV12{margin-top:14px;border-top:1px solid #e5e7eb;padding-top:14px}.marketV12Head{display:flex;gap:7px;align-items:center;flex-wrap:wrap;font-size:11px}.marketV12Head span{padding:4px 7px;border-radius:999px;background:#f3f4f6}.marketV12Head .tierV12{color:white}.marketV12Grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:8px;margin-top:10px}.marketV12Grid>div{background:#f8fafc;border:1px solid #e8edf3;border-radius:10px;padding:9px}.marketV12Grid strong{display:block;font-size:18px}.marketV12Grid small{display:block;color:#667085;font-size:9px;line-height:1.25}.marketV12Note{font-size:10px!important;color:#667085!important;margin:9px 0 0!important}`;document.head.appendChild(style);
+document.querySelector('.brand small').textContent='Intelligence Command Center · v12';document.getElementById('sync').textContent='● '+VERSION+' · '+LIVE_TOTAL+' oportunidades · '+LIVE_MAPPED+' geolocalizadas';refresh(true)}
+wait();
+})();
